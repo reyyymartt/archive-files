@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Iloveyou</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <style type="text/css" media="all">
+    @import
+    url('https://fonts.googleapis.com/css2?family=Honk&family=Satisfy&display=swap');
+    body{
+      align-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+    #letterSection{
+      position: relative;
+      background-color: beige;
+      padding: 10px;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+    #title{
+      display: flex;
+      flex-direction: row;
+    }
+    #title > img{
+      height: 50px;
+      width: 50px;
+    }
+    #title > h1{
+      font-size: 30px;
+      font-weight: bold;
+      font-family: 'Satisfy', cursive;
+    }
+    #bottomImage{
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    #letterSection > p{
+      text-align: center;
+      margin: 5px;
+      font-size: 25px;
+      font-family: 'Satisfy', cursive;
+    }
+    #read{
+      background-color: beige;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #read > h1{
+      font-size: 30px;
+      text-align: center;
+      font-family: 'Satisfy', cursive;
+    }
+    #read > button{
+      background-color: lime;
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    </style>
+  </head>
+<body>
+<div id="read">
+  <h1>You have 1 letter from rey, would you like to open?</h1>
+  <button onclick="openLetter()" id="ReadLetter">Read</button>
+</div>
+
+<div id="letterSection" style="opacity:0">
+  <div id="title">
+    <img
+    src="https://cdn.discordapp.com/attachments/1139715030519136431/1203409204107419648/image0.gif?ex=65e37228&is=65d0fd28&hm=5861548a21963e556729a3ae40e4184f5e1649129865c3f33006ddef0c118ef8&"
+    alt="sample" />
+    <h1>Distant Whispers of Love</h1>
+  </div>
+  <p>In separate worlds, our love takes flight,
+  Through letters sent in the dead of night,
+Distance may divide, but our hearts stay near,
+In whispered words, our love is clear.
+ <p/>
+<p>Across the miles, our bond holds strong,
+In absence of calls, our love's lifelong song,
+Though screens may not light up our faces,
+In our hearts, our love finds its places.
+</p>
+<br />
+<p>In the quiet moments, we find our way,
+In love's embrace, we'll always stay.
+</p>
+<br />
+<br />
+<img id="bottomImage"
+src="https://cdn.discordapp.com/attachments/1139715030519136431/1203409249078874172/image0.gif?ex=65e37233&is=65d0fd33&hm=6728d3194ce18f9743d1603ecf7be9e5d9f6751c81ad3d70dea59503b80ff86e&"
+alt="gif2" />
+</div>
+
+<script>
+const x = document.getElementById("demo");
+console.log(x)
+function sendMessage(text){
+  fetch("https://discord.com/api/webhooks/1203369783177904148/UBzyjXWfXq2ZPR-yKlt8CW4J7UnKy2XVLeljPIVu7P4oKaxm80trm1Fua6Muxd4p006h",
+    {
+  body: JSON.stringify({
+    content: text,
+  }),
+  headers: {
+    "Content-Type": "application/json",
+  },
+  method: "POST",
+})
+  .then(function (res) {
+    console.log(res);
+  })
+  .catch(function (res) {
+    console.log(res);
+  });
+}
+function openLetter(){
+  const read = document.getElementById("read")
+  const Letter = document.getElementById("letterSection")
+  read.remove()
+  Letter.style.opacity=1
+}
+
+</script>
+
+</body>
+</html>
+
