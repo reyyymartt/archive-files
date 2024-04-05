@@ -40,11 +40,14 @@
     ]
     request.onerror = (event)=>{
       console.log("error",event)
+      const button = document.getElementById("add")
+      button.value = "error"
     }
     request.onsuccess=(event)=>{
       const db = event.target.result
       const datalist = document.getElementById("data-list")
       const add = document.getElementById("add")
+      add.value = "success"
       const trans = db.transaction("texts","readwrite")
       const obj = trans.objectStore("texts")
       const reqlist = obj.getAll()
@@ -89,7 +92,6 @@
   </script>
 </head>
 <body>
-
 <div id="data-list">
 <p class="item">new data</p>
 <p class="item">new data2</p>
