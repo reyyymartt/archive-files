@@ -75,21 +75,20 @@
   </style>
   <script type="text/javascript">
   let status = false
+  let currentScale = 1
     function dodge(){
       const button = document.getElementById("no")
+      const yes = document.getElementById("yes")
       console.log('clicked')
-      if (button.className == "no"){
-        button.className = "yes"
-      } else {
-        button.className = "no"
-      }
+      currentScale += .1
+      yes.style.transform = `scale(${currentScale},${currentScale})`
     }
     function agree(){
       const buttonsDiv = document.getElementById("buttons")
       const image = document.getElementById("mainImage")
       const text = document.getElementById("mainText")
       buttonsDiv.style.opacity = 0
-      text.innerText = "Yayyy okayyy!"
+      text.innerText = "Yeyyyy thank youuuu!"
       image.src = "https://media.tenor.com/waChlDgfqx8AAAAj/love-loving.gif"
     }
     console.log(window)
