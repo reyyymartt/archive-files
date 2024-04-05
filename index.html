@@ -23,7 +23,7 @@
   </style>
   <script type="text/javascript" charset="utf-8">
     const dbName = "MainData"
-    const request = indexedDB.open(dbName,1)
+    const request = indexedDB.open(dbName)
     
     const sid = function(){
   return Math.floor(100000000 + Math.random() * 900000000).toString()
@@ -63,14 +63,15 @@
         })
       }
       add.onclick=function(){
-        const trans = db.transaction("texts","readwrite")
-        const obj = trans.objectStore("texts")
+        const trans1 = db.transaction("texts","readwrite")
+        const obj1 = trans1.objectStore("texts")
         const data = {
           text: "new data",
           id: sid()
         }
-        const req = obj.add(data)
+        const req = obj1.add(data)
         req.onsuccess=(event)=>{
+          alert("data added")
           window.location.reload()
         }
       }
